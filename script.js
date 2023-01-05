@@ -1,5 +1,6 @@
 function encriptar(traduccion){
     document.querySelector("#warning").removeAttribute("style");
+    document.querySelector("#iconexc").removeAttribute("style");
     var textarea = document.querySelector("#texto");
     const texto = textarea.value;
     var area_default = document.querySelector("#default");
@@ -10,7 +11,9 @@ function encriptar(traduccion){
         for(var i=0; i < texto.length; i++){
             if(((texto[i] < 'a') || (texto[i] > 'z')) && (texto[i] != ' ')){
                 document.querySelector("#warning").style.color = "#CB3234";
-                document.querySelector("#warning").style.fontSize = "12px";
+                document.querySelector("#warning").style.fontSize = "14px";
+                document.querySelector("#iconexc").style.color = "#CB3234";
+                document.querySelector("#iconexc").style.fontSize = "14px";
                 return;
             }
             else if((texto.length == 1 && texto == " ") || texto.replace(/ /g, "") == ""){
@@ -57,8 +60,10 @@ function desencriptar(traduccion){
     if (texto != ""){
         for(var i=0; i < texto.length; i++){
             if(((texto[i] < 'a') || (texto[i] > 'z')) && (texto[i] != ' ')){
-                document.querySelector("#warning").style.color = "red";
-                document.querySelector("#warning").style.fontSize = "16px";
+                document.querySelector("#warning").style.color = "#CB3234";
+                document.querySelector("#warning").style.fontSize = "14px";
+                document.querySelector("#iconexc").style.color = "#CB3234";
+                document.querySelector("#iconexc").style.fontSize = "14px";
                 return;
             }
             else if((texto.length == 1 && texto == " ") || texto.replace(/ /g, "") == ""){
