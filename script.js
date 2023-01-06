@@ -1,5 +1,5 @@
-function encriptar(traduccion){
-    document.querySelector("#warning").removeAttribute("style");
+function encriptar(encriptacion){
+    document.querySelector("#alerta").removeAttribute("style");
     document.querySelector("#iconexc").removeAttribute("style");
     var textarea = document.querySelector("#texto");
     const texto = textarea.value;
@@ -10,8 +10,8 @@ function encriptar(traduccion){
         var out = ""
         for(var i=0; i < texto.length; i++){
             if(((texto[i] < 'a') || (texto[i] > 'z')) && (texto[i] != ' ')){
-                document.querySelector("#warning").style.color = "#CB3234";
-                document.querySelector("#warning").style.fontSize = "14px";
+                document.querySelector("#alerta").style.color = "#CB3234";
+                document.querySelector("#alerta").style.fontSize = "14px";
                 document.querySelector("#iconexc").style.color = "#CB3234";
                 document.querySelector("#iconexc").style.fontSize = "14px";
                 return;
@@ -22,19 +22,19 @@ function encriptar(traduccion){
                 return;
             }
             if(texto[i] == 'a'){
-                out += traduccion["a"] ;
+                out += encriptacion["a"] ;
             }
             else if(texto[i] == 'e'){
-                out += traduccion["e"];
+                out += encriptacion["e"];
             }
             else if(texto[i] == 'i'){
-                out += traduccion["i"]; 
+                out += encriptacion["i"]; 
             }
             else if(texto[i] == 'o'){
-                out += traduccion["o"]; 
+                out += encriptacion["o"]; 
             }
             else if(texto[i] == 'u'){
-                out += traduccion["u"]; 
+                out += encriptacion["u"]; 
             }
             else{
                 out += texto[i];
@@ -45,13 +45,11 @@ function encriptar(traduccion){
         area_result.classList.remove("invisible");
         texto_out.innerHTML = out;
     }
-
     return;
-
 }
 
-function desencriptar(traduccion){
-    document.querySelector("#warning").removeAttribute("style");
+function desencriptar(encriptacion){
+    document.querySelector("#alerta").removeAttribute("style");
     var textarea = document.querySelector("#texto");
     var texto = textarea.value;
     var area_default = document.querySelector("#default");
@@ -60,8 +58,8 @@ function desencriptar(traduccion){
     if (texto != ""){
         for(var i=0; i < texto.length; i++){
             if(((texto[i] < 'a') || (texto[i] > 'z')) && (texto[i] != ' ')){
-                document.querySelector("#warning").style.color = "#CB3234";
-                document.querySelector("#warning").style.fontSize = "14px";
+                document.querySelector("#alerta").style.color = "#CB3234";
+                document.querySelector("#alerta").style.fontSize = "14px";
                 document.querySelector("#iconexc").style.color = "#CB3234";
                 document.querySelector("#iconexc").style.fontSize = "14px";
                 return;
@@ -74,11 +72,11 @@ function desencriptar(traduccion){
         }
         area_default.classList.add("invisible");
         area_result.classList.remove("invisible");
-        texto = texto.replace(new RegExp(traduccion["a"], "g"), "a");
-        texto = texto.replace(new RegExp(traduccion["e"], "g"), "e");
-        texto = texto.replace(new RegExp(traduccion["i"], "g"), "i");
-        texto = texto.replace(new RegExp(traduccion["o"], "g"), "o");
-        texto = texto.replace(new RegExp(traduccion["u"], "g"), "u");
+        texto = texto.replace(new RegExp(encriptacion["a"], "g"), "a");
+        texto = texto.replace(new RegExp(encriptacion["e"], "g"), "e");
+        texto = texto.replace(new RegExp(encriptacion["i"], "g"), "i");
+        texto = texto.replace(new RegExp(encriptacion["o"], "g"), "o");
+        texto = texto.replace(new RegExp(encriptacion["u"], "g"), "u");
         texto_out.innerHTML = texto;
     }
     return;
@@ -89,12 +87,12 @@ function clipboard(){
     navigator.clipboard.writeText(texto_out.value);
 }
 
-const enc = document.querySelector('#enc');
-const des = document.querySelector('#des');
-const copy = document.querySelector('#copiar');
+const enc = document.querySelector('#boton_encriptar');
+const des = document.querySelector('#boton_desencriptar');
+const copy = document.querySelector('#boton_copiar');
 
-var traduccion = {"a": "ai", "e": "enter", "i": "imes", "o": "ober", "u": "ufat"};
+var encriptacion = {"a": "ai", "e": "enter", "i": "imes", "o": "ober", "u": "ufat"};
 
-enc.addEventListener( 'click', function() {encriptar(traduccion);} );
-des.addEventListener( 'click', function() {desencriptar(traduccion);} );
+enc.addEventListener( 'click', function() {encriptar(encriptacion);} );
+des.addEventListener( 'click', function() {desencriptar(encriptacion);} );
 copy.addEventListener( 'click', function() {clipboard();} );

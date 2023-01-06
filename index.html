@@ -23,43 +23,40 @@
     <main>
         <div class="div_contenedor">
             <div class="bloque">
-
                 <form class="bloque_form">
                     <div class="texto">
                         <textarea name="texto_area" id="texto" placeholder="Ingrese el texto aquí"></textarea>
                         <div class="texto_info">
                             <div class="info">
                                 <i class="fa fa-exclamation-circle" id="iconexc" aria-hidden="true"></i>
-                                <p id="warning">¡Sólo letras minúsculas y sin acentos!</p>
+                                <p id="alerta">¡Sólo letras minúsculas y sin acentos!</p>
                             </div>
-                            <div class="texto_btns">
-                                <input id="enc" type="button" value="Encriptar">
-                                <input id="des" type="button" value="Desencriptar">
+                            <div class="botones">
+                                <input id="boton_encriptar" type="button" value="Encriptar">
+                                <input id="boton_desencriptar" type="button" value="Desencriptar">
                             </div> 
                         </div>
                     </div>
                 </form>
-
-                <div class="text_out_sec">
-                    <div class="out_content">
+                <div class="lateral">
+                    <div class="lateral_cont">
                         <div class="content" id="default">
-                            <div class="text_out_img">
-                                <img src="imagenes/muneco.png" alt="Imagen de animada">
+                            <div class="lateral_imagen">
+                                <img src="imagenes/muneco.png" alt="Imagen de persona con una lupa">
                             </div>
                             <p>Ningún mensaje fue encontrado</p>
                             <p>Ingresa el texto que desees encriptar o desencriptar.</p>
                         </div>
                         <div class = "content invisible" id="result">
                             <textarea name="text_out_area" id="texto_out" disabled></textarea>
-                            <button id="copiar">Copiar</button>
+                            <button id="boton_copiar">Copiar</button>
                         </div>
                     </div>  
                 </div>
-
             </div>
         </div>
     </main>
-
+    
     <footer class="footer">
         <p>&copy Copyright Agostina Celina Venezia Napolillo - 2023</p><br>
         <a href="https://www.linkedin.com/in/agostinavenezia/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:24px;color:#0A66C2"></i></a>
